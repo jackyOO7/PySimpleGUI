@@ -34,9 +34,12 @@ while True:
         break
     if event == 'Clear':  # clear keys if clear button
         keys_entered = ''
+        window.FindElement('input').Update('')  #clear input
+        window.FindElement('out').Update('')    #clear label
     elif event in '1234567890':
         keys_entered = values['input']  # get what's been entered so far
         keys_entered += event  # add the new digit
+        window.FindElement('input').Update(keys_entered) # show in input
     elif event == 'Submit':
         keys_entered = values['input']
         window.FindElement('out').Update(keys_entered)  # output the final string
